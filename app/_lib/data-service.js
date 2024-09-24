@@ -8,7 +8,7 @@ export const searchHospitals = async ({
   lga,
   radius = 20,
   page = 1,
-  limit = 8,
+  limit = 10,
   mapLimit = 1000,
 }) => {
   if (!API_BASE_URL) {
