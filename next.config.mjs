@@ -9,6 +9,9 @@ const nextConfig = {
     return config;
   },
   transpilePackages: ['mapbox-gl'],
+  postcss: {
+    plugins: ['tailwindcss', 'autoprefixer'],
+  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
