@@ -46,6 +46,7 @@ const SearchBar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [location, setLocation] = useState(null);
   const [selectedLGA, setSelectedLGA] = useState('');
+  const [geoError, setGeoError] = useState(null);
 
   const autocompleteService = useRef(null);
   const geocoder = useRef(null);
@@ -125,6 +126,7 @@ const SearchBar = () => {
 
   const handleGetLocation = () => {
     if (navigator.geolocation) {
+      setGeoError(null);
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
@@ -141,10 +143,12 @@ const SearchBar = () => {
         },
         (error) => {
           console.error('Error getting location:', error);
-        }
+          setGeoError(error.message);
+        },
+        { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
       );
     } else {
-      console.error('Geolocation is not supported by this browser.');
+      setGeoError('Geolocation is not supported by this browser.');
     }
   };
 
