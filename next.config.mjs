@@ -1,3 +1,5 @@
+import autoprefixer from 'autoprefixer';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -10,7 +12,7 @@ const nextConfig = {
   },
   transpilePackages: ['mapbox-gl'],
   postcss: {
-    plugins: ['tailwindcss', 'autoprefixer'],
+    plugins: ['tailwindcss', autoprefixer],
   },
 };
 
