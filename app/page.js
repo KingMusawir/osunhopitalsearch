@@ -10,7 +10,7 @@ export default function Page() {
         <Image
           src={background}
           fill
-          alt='Mountains and forests with two cabins'
+          alt='The Osun State Hospital'
           className='object-cover object-top filter brightness-50 blur-sm'
           placeholder='blur'
           quality={80}
@@ -31,7 +31,7 @@ export default function Page() {
           />
         </div>
         <h1 className='mb-10 text-4xl font-normal tracking-tight md:text-8xl text-primary-50'>
-          Welcome to OsunHopital Search
+          Welcome to Osun Hospital Search
         </h1>
 
         <p className='inline-block px-8 py-6 text-lg font-semibold transition-all bg-accent-500 text-primary-800 hover:bg-accent-600'>
