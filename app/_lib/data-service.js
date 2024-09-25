@@ -41,17 +41,10 @@ export const searchHospitals = async ({
   mapParams.set('page', 1); // Always get the first page for map data
 
   try {
-    console.log('Making API call to:', url); // Log the API URL
-    console.log('With Parameters:', params.toString()); // Log the parameters
-
     const [listResponse, mapResponse] = await Promise.all([
       axios.get(`${url}?${params}`),
       axios.get(`${url}?${mapParams}`),
     ]);
-
-    // Log the full API response for debugging
-    console.log('List Response:', listResponse.data);
-    console.log('Map Response:', mapResponse.data);
 
     // Ensure the response data has the expected structure
     const listData = listResponse.data?.data?.hospitals

@@ -42,9 +42,6 @@ const osunLGAs = [
 const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
 
 const SearchBar = () => {
-  useEffect(() => {
-    console.log('API URL:', process.env.NEXT_PUBLIC_OSUNHOP_URL);
-  }, []);
   const [address, setAddress] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [location, setLocation] = useState(null);
@@ -61,7 +58,6 @@ const SearchBar = () => {
 
   useEffect(() => {
     if (data) {
-      console.log('Search results data:', data);
       if (data.data && data.data.hospitals) {
         data.data.hospitals.forEach((hospital, index) => {
           console.log(`Hospital ${index + 1}:`, {
@@ -188,22 +184,12 @@ const SearchBar = () => {
       }
     }
 
-    // Log the lat and lng values
-    console.log('Geocoded Coordinates:', { lat, lng });
-
     const searchParams = {
       ...(lat && lng ? { lat: lat.toFixed(6), lng: lng.toFixed(6) } : {}),
       ...(selectedLGA ? { lga: selectedLGA } : {}),
       radius: 20,
       address,
     };
-
-    console.log('Submitting search with params:', {
-      ...searchParams,
-      addressUsed: address,
-      locationUsed: location,
-      selectedLGA,
-    });
 
     searchHospitals(searchParams);
   };
