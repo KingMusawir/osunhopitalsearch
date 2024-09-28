@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function BackNavigation() {
   const router = useRouter();
+  console.log(router);
 
   const handleBack = () => {
     router.back();
